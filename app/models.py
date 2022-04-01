@@ -61,7 +61,7 @@ class NormalUser(AbstractBaseUser):
   def has_module_perms(self, app_label):
     return True
 
-class Projects(models.Model):
+class Project(models.Model):
   TRACK_SELECTION=(
     ('ANDROID', 'ANDROID'),
     ('FULLSTACK', 'FULLSTACK'),
@@ -70,7 +70,7 @@ class Projects(models.Model):
   project_type=models.CharField(max_length=9, choices=TRACK_SELECTION, default=0)
   project_description=models.TextField()
   project_owner=models.TextField()
-  # project_members=models.JSONField()
+  # project_member=models.JSONField()
   project_members=jsonfield.JSONField()
   github_link=models.URLField(max_length=300)
 

@@ -21,5 +21,5 @@ class NormalUserAdmin(BaseUserAdmin):
   ordering=('email',)
 
 admin.site.register(NormalUser, NormalUserAdmin)
-admin.site.register(Projects)
+admin.site.register(Project)
 
