@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from cloudinary.models import CloudinaryField
-
+import jsonfield
 
 # Create your models here.
 class Manager(BaseUserManager):
@@ -60,3 +60,19 @@ class NormalUser(AbstractBaseUser):
 
   def has_module_perms(self, app_label):
     return True
+
+class Projects(models.Model):
+  TRACK_SELECTION=(
+    ('ANDROID', 'ANDROID'),
+    ('FULLSTACK', 'FULLSTACK'),
+  )
+  project_name=models.CharField(max_length=100)
+  project_type=models.CharField(max_length=9, choices=TRACK_SELECTION, default=0)
+  project_description=models.TextField()
+  project_owner=models.TextField()
+  # project_members=models.JSONField()
+  project_members=jsonfield.JSONField()
+  github_link=models.URLField(max_length=300)
+
+  def __str__(self) -> str:
+    return self.project_name
