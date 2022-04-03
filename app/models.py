@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from cloudinary.models import CloudinaryField
@@ -61,6 +62,7 @@ class NormalUser(AbstractBaseUser):
   def has_module_perms(self, app_label):
     return True
 
+
 class Project(models.Model):
   TRACK_SELECTION=(
     ('ANDROID', 'ANDROID'),
@@ -69,10 +71,23 @@ class Project(models.Model):
   project_name=models.CharField(max_length=100)
   project_type=models.CharField(max_length=9, choices=TRACK_SELECTION, default=0)
   project_description=models.TextField()
-  project_owner=models.TextField()
-  # project_member=models.JSONField()
-  project_members=jsonfield.JSONField()
-  github_link=models.URLField(max_length=300)
+  project_owner=models.CharField(max_length=100)
+  project_member1=models.CharField(max_length=50, null=True, blank=True)
+  project_member2=models.CharField(max_length=50, null=True, blank=True)
+  project_member3=models.CharField(max_length=50, null=True, blank=True)
+  project_member4=models.CharField(max_length=50, null=True, blank=True)
+  project_member5=models.CharField(max_length=50, null=True, blank=True)
+  project_member6=models.CharField(max_length=50, null=True, blank=True)
+  github_link=models.URLField(max_length=100)
+  # project_members=ArrayField(jsonfield.JSONField(),default=list, null=True)
+  # project_members=jsonfield.JSONField()
+  # project_members=ArrayField(
+  #       ArrayField(
+  #           models.CharField(max_length=10, blank=True),
+  #           size=8,
+  #       ),
+  #       size=8,
+  #   )
 
   def __str__(self) -> str:
     return self.project_name
