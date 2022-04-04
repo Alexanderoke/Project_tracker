@@ -1,3 +1,4 @@
+from email.policy import default
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
@@ -70,6 +71,7 @@ class Project(models.Model):
   )
   project_name=models.CharField(max_length=100)
   project_type=models.CharField(max_length=9, choices=TRACK_SELECTION, default=0)
+  project_landingpage=CloudinaryField('image', default='image')
   project_description=models.TextField()
   project_owner=models.CharField(max_length=100)
   project_member1=models.CharField(max_length=50, null=True, blank=True)
