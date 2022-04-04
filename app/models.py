@@ -1,9 +1,9 @@
-from email.policy import default
+# from email.policy import default
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from cloudinary.models import CloudinaryField
-import jsonfield
+# import jsonfield
 
 # Create your models here.
 class Manager(BaseUserManager):
