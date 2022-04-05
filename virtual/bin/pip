@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/alexander/Desktop/Moringa-school-Project/pro dev/project tracking/virtual/bin/python" "$0" "$@"
-' '''
+#!/home/blair/p-ttrack/Project_tracker/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

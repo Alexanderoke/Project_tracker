@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/home/alexander/Desktop/Moringa-school-Project/pro dev/project tracking/virtual'
+VIRTUAL_ENV='/home/blair/p-ttrack/Project_tracker/virtual'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
