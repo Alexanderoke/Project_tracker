@@ -3,6 +3,6 @@ from .views import *
 
 
 urlpatterns=[
-  path('', project_list),
+  path('project/', project_list),
   path('project/([0-9]+)', project_list),  
 ]
